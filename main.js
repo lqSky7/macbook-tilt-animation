@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(32, 1, .1, 250);
 camera.position.set(0, 1.2, 7.2);
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-renderer.setClearColor(0xf6f6f6, 0);
+renderer.setClearColor(0x000000, 1);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.18;
 viewport.appendChild(renderer.domElement);
@@ -22,15 +22,13 @@ const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(environment, .04).texture;
 environment.dispose();
 pmrem.dispose();
-scene.environmentIntensity = 1.35;
+scene.environmentIntensity = 1.0;
 
-scene.add(new THREE.HemisphereLight(0xffffff, 0xcccccc, 1.8));
-const key = new THREE.DirectionalLight(0xffffff, 2.6);
-key.position.set(-15, 25, 30);
+scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd0d0d0, 1.0));
+const key = new THREE.DirectionalLight(0xffffff, 0.4);
+key.position.set(-5, 15, 20);
 scene.add(key);
-const rim = new THREE.DirectionalLight(0xffffff, 2);
-rim.position.set(15, 5, -15);
-scene.add(rim);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -259,12 +257,12 @@ try {
     screenMesh.material = screenMaterial;
   }
 
-  // Optimize materials for Apple anodized aluminum finish
+  // Matte Apple anodized aluminum finish without specular glares
   macbookNode.traverse(child => {
     if (child.isMesh && child.material && child !== screenMesh) {
-      child.material.roughness = 0.42;
-      child.material.metalness = 0.85;
-      child.material.envMapIntensity = 1.2;
+      child.material.roughness = 0.85;
+      child.material.metalness = 0.15;
+      child.material.envMapIntensity = 0.5;
       child.material.needsUpdate = true;
     }
   });

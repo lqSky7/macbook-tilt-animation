@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://macbook-tilt-animation.catinice.workers.dev/</loc>
+    <loc>https://macos-lid-closing-animation.catinice.workers.dev/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://macbook-tilt-animation.catinice.workers.dev/assets/og-preview.png</image:loc>
-      <image:title>MacBook Pro 3D Tilt &amp; Fold Interactive Studio</image:title>
+      <image:loc>https://macos-lid-closing-animation.catinice.workers.dev/assets/og-preview.png</image:loc>
+      <image:title>macOS Lid Closing Animation · Interactive 3D MacBook Pro Studio</image:title>
       <image:caption>Interactive 3D MacBook Pro running macOS with dynamic fold animation and wallpapers</image:caption>
     </image:image>
   </url>

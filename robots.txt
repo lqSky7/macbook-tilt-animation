@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Canonical Sitemap
-Sitemap: https://macbook-tilt-animation.catinice.workers.dev/sitemap.xml
+Sitemap: https://macos-lid-closing-animation.catinice.workers.dev/sitemap.xml

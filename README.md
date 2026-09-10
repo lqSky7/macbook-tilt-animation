@@ -1,11 +1,11 @@
-# MacBook Pro 3D - macOS Tilt & Fold Preview
+# macOS Lid Closing Animation · Interactive 3D MacBook Pro Studio
 
 [![Three.js](https://img.shields.io/badge/Three.js-r186-black?style=for-the-badge&logo=three.js)](https://threejs.org/)
 [![WebGL2](https://img.shields.io/badge/WebGL2-Enabled-990000?style=for-the-badge&logo=webgl)](https://www.khronos.org/webgl/)
-[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare_Pages-Deployed-F38020?style=for-the-badge&logo=cloudflare)](https://pages.cloudflare.com/)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-Deployed-F38020?style=for-the-badge&logo=cloudflare)](https://macos-lid-closing-animation.catinice.workers.dev)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-An interactive, high-fidelity 3D MacBook Pro browser studio running macOS. Experience real-time WebGL rendering, physically accurate lid fold and tilt physics, a dynamic 2560x1600 Retina desktop projection with a live menu bar and glass dock, and curated high-resolution Apple wallpapers.
+An interactive, high-fidelity 3D MacBook Pro browser studio demonstrating the signature macOS lid closing animation. Experience real-time WebGL rendering, physically accurate lid fold and tilt mechanics, progressive screen blur and darkening as the lid closes, and curated high-resolution Apple wallpapers.
 
 ---
 
