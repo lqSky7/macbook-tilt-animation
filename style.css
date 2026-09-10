@@ -33,7 +33,7 @@ main{display:block;min-height:100dvh;padding:96px 16px 64px}
 .download-link:focus-visible,.github-link:focus-visible,.brand:focus-visible{outline:2px solid #fff;outline-offset:4px}
 .colophon{position:relative;z-index:0;width:100%;height:256px;background:#000;display:flex;justify-content:center;align-items:center;overflow:hidden}
 .colophon-cut{position:relative;overflow:hidden;width:100%;height:100%}
-.colophon-title{position:absolute;bottom:0;left:50%;transform:translate(-50%,33%);margin:0;font-size:clamp(100px,22vw,192px);font-weight:800;letter-spacing:-.04em;line-height:1;white-space:nowrap}
+.colophon-title{position:absolute;bottom:0;left:50%;transform:translate(-50%,33%);margin:0;font-size:clamp(100px,22vw,192px);font-weight:200;letter-spacing:-.045em;line-height:1;white-space:nowrap}
 .chroma-text{display:inline-flex;padding-bottom:.1rem;padding-right:.15em;background-size:300% 100%;background-position:100% 0;will-change:background-position;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .chroma-pre{opacity:0}
 .chroma-go{animation:chroma-sweep 1.5s ease-in-out .2s forwards;filter:blur(1px)}
