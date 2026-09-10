@@ -73,12 +73,8 @@ for (const [theme, canvas] of Object.entries(defaultUIs)) {
 
 const uiPixel = { value: new THREE.Vector2(1 / 1440, 1 / 900) };
 
-const screenMaterial = new THREE.MeshStandardMaterial({
-  color: 0x060606,
-  emissive: 0xffffff,
-  emissiveMap: defaultTextures[uiTheme],
-  roughness: .3,
-  metalness: 0,
+const screenMaterial = new THREE.MeshBasicMaterial({
+  map: defaultTextures[uiTheme],
   toneMapped: false
 });
 
@@ -96,7 +92,7 @@ vec3 screenColor() {
   vec2 dy = dFdy(vUv) / uiPixel;
   float baseLod = log2(max(1.0, max(length(dx), length(dy))));
   vec2 coverage = smoothstep(-aa, aa, vUv) * (1.0 - smoothstep(vec2(1.0) - aa, vec2(1.0) + aa, vUv));
-  vec3 color = textureLod(emissiveMap, clamp(vUv, vec2(0.0), vec2(1.0)), baseLod).rgb * coverage.x * coverage.y;
+  vec3 color = textureLod(map, clamp(vUv, vec2(0.0), vec2(1.0)), baseLod).rgb * coverage.x * coverage.y;
   if (radius > 0.0) {
     float lod = max(baseLod, log2(max(1.0, radius)));
     vec2 footprint = max(aa, uiPixel * radius * 0.75);
@@ -107,7 +103,7 @@ vec3 screenColor() {
         float wy = y == 0 ? 6.0 : (abs(y) == 1 ? 4.0 : 1.0);
         vec2 sampleUV = vUv + vec2(float(x), float(y)) * uiPixel * radius;
         vec2 cov = smoothstep(-footprint, footprint, sampleUV) * (1.0 - smoothstep(vec2(1.0) - footprint, vec2(1.0) + footprint, sampleUV));
-        color += textureLod(emissiveMap, clamp(sampleUV, vec2(0.0), vec2(1.0)), lod).rgb * cov.x * cov.y * wx * wy / 256.0;
+        color += textureLod(map, clamp(sampleUV, vec2(0.0), vec2(1.0)), lod).rgb * cov.x * cov.y * wx * wy / 256.0;
       }
     }
   }
@@ -124,10 +120,10 @@ screenMaterial.onBeforeCompile = shader => {
     #include <begin_vertex>
   `);
   shader.fragmentShader = `varying vec2 vUv;\n${shader.fragmentShader}`;
-  shader.fragmentShader = shader.fragmentShader.replace('#include <emissivemap_pars_fragment>', `
-    #include <emissivemap_pars_fragment>
+  shader.fragmentShader = shader.fragmentShader.replace('#include <map_pars_fragment>', `
+    #include <map_pars_fragment>
     ${screenShader}
-  `).replace('#include <emissivemap_fragment>', 'totalEmissiveRadiance *= screenColor();');
+  `).replace('#include <map_fragment>', 'diffuseColor.rgb *= screenColor();');
 };
 screenMaterial.customProgramCacheKey = () => 'macbook-fold-screen';
 
@@ -147,7 +143,7 @@ uiInput.addEventListener('change', async () => {
     const width = img.width * scale, height = img.height * scale;
     c.drawImage(img, (uiCanvas.width - width) / 2, (uiCanvas.height - height) / 2, width, height);
     uiTexture.needsUpdate = true;
-    screenMaterial.emissiveMap = uiTexture;
+    screenMaterial.map = uiTexture;
     uiTheme = 'custom';
     document.querySelectorAll('[data-ui-theme]').forEach(button => button.setAttribute('aria-selected', String(button.dataset.uiTheme === uiTheme)));
     setPlaying(false);
@@ -162,7 +158,7 @@ uiInput.addEventListener('change', async () => {
 
 function showDefaultUI() {
   const texture = defaultTextures[uiTheme];
-  screenMaterial.emissiveMap = texture;
+  screenMaterial.map = texture;
   document.querySelectorAll('[data-ui-theme]').forEach(button => button.setAttribute('aria-selected', String(button.dataset.uiTheme === uiTheme)));
 }
 
@@ -229,7 +225,7 @@ try {
   lidPivot.position.set(0, 1.2405, 0);
   macbookNode.add(lidPivot);
 
-  const lidNames = ['anchor', 'back_screen', 'overlay', 'Screen'];
+  const lidNames = ['anchor', 'back_screen', 'Screen'];
   lidNames.forEach(name => {
     const mesh = macbookNode.getObjectByName(name);
     if (mesh) {
@@ -237,6 +233,12 @@ try {
       lidPivot.add(mesh);
     }
   });
+
+  // Remove overlay mesh to eliminate shiny glass reflections over the screen
+  const overlayMesh = macbookNode.getObjectByName('overlay');
+  if (overlayMesh) {
+    overlayMesh.visible = false;
+  }
 
   // Remap Screen UVs for Retina display mapping
   screenMesh = macbookNode.getObjectByName('Screen');
@@ -257,13 +259,15 @@ try {
     screenMesh.material = screenMaterial;
   }
 
-  // Overlay glass
-  const overlayMesh = macbookNode.getObjectByName('overlay');
-  if (overlayMesh && overlayMesh.material) {
-    overlayMesh.material.transparent = true;
-    overlayMesh.material.opacity = 0.18;
-    overlayMesh.material.roughness = 0.02;
-  }
+  // Optimize materials for Apple anodized aluminum finish
+  macbookNode.traverse(child => {
+    if (child.isMesh && child.material && child !== screenMesh) {
+      child.material.roughness = 0.42;
+      child.material.metalness = 0.85;
+      child.material.envMapIntensity = 1.2;
+      child.material.needsUpdate = true;
+    }
+  });
 
   macbook.add(root);
   showDefaultUI();
