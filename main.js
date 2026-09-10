@@ -247,20 +247,18 @@ try {
     screenMesh.material = screenMaterial;
   }
 
-  // Matte Apple anodized aluminum finish with clear contrast against black background
+  // Matte Space Black finish with zero reflections
   macbookNode.traverse(child => {
     if (child.isMesh && child.material && child !== screenMesh) {
       if (child.name === 'anchor' || child.name === 'bottom_stands') {
-        // High-precision matte black for screen rubber gasket & feet
-        child.material.color = new THREE.Color(0x161616);
-        child.material.roughness = 0.95;
-        child.material.metalness = 0.0;
+        // Pure matte black for screen rubber gasket & feet
+        child.material.color = new THREE.Color(0x0a0a0a);
       } else {
-        // Crisp Apple Silver unibody aluminum with clear visibility against pitch-black background
-        child.material.color = new THREE.Color(0xd6d8dc);
-        child.material.roughness = 0.82;
-        child.material.metalness = 0.05;
+        // Matte Apple Space Black unibody aluminum
+        child.material.color = new THREE.Color(0x222225);
       }
+      child.material.roughness = 0.95;
+      child.material.metalness = 0.0;
       child.material.envMapIntensity = 0.0;
       child.material.needsUpdate = true;
     }
