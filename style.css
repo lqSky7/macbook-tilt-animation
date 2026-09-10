@@ -3,6 +3,7 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:#000;overflow-x:hidden}
 .topbar{position:fixed;top:0;left:0;right:0;z-index:10;pointer-events:none}
+.brand{position:absolute;top:calc(16px + env(safe-area-inset-top));left:calc(20px + env(safe-area-inset-left));display:inline-flex;align-items:center;height:44px;font-size:22px;font-weight:200;letter-spacing:-.045em;color:#f5f5f7;text-decoration:none;pointer-events:auto}
 .top-actions{position:absolute;top:calc(16px + env(safe-area-inset-top));right:calc(16px + env(safe-area-inset-right));display:flex;gap:10px;align-items:center;pointer-events:auto}
 main{display:block;min-height:100dvh;padding:96px 16px 64px}
 .download-link{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 16px;border-radius:999px;background:#fff;color:#000;font-size:14px;font-weight:500;line-height:1;text-decoration:none;transition:background .2s}
@@ -22,7 +23,7 @@ main{display:block;min-height:100dvh;padding:96px 16px 64px}
 .shot-wrap img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:top center;background:#000}
 .battery-card{justify-content:center;align-items:flex-start}
 .battery-icon{width:120px;height:auto;display:block;margin:8px 0 4px}
-.download-link:focus-visible,.github-link:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.download-link:focus-visible,.github-link:focus-visible,.brand:focus-visible{outline:2px solid #fff;outline-offset:4px}
 @media(max-width:860px){
   .bento-row{grid-template-columns:1fr}
   .card h2{font-size:24px}
@@ -30,6 +31,7 @@ main{display:block;min-height:100dvh;padding:96px 16px 64px}
 }
 @media(max-width:700px){
   main{padding:96px 16px 48px}
+  .brand{height:40px;font-size:19px}
   .download-link,.github-link{height:40px;font-size:13px}
   .download-link{padding:0 14px 0 13px}
   .github-link{padding:0 14px}
