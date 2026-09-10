@@ -9,6 +9,7 @@ main{height:100dvh;position:relative}
 canvas{display:block;outline:none}
 .download-link{position:absolute;top:calc(16px + env(safe-area-inset-top));right:calc(16px + env(safe-area-inset-right));z-index:1;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 16px;border-radius:999px;background:#fff;color:#000;font-size:14px;font-weight:500;line-height:1;text-decoration:none;transition:background .2s}
 .download-link svg{width:17px;height:17px;fill:currentColor;flex-shrink:0}
+.site-note{position:absolute;top:calc(16px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:1;margin:0;max-width:calc(100% - 220px);padding:8px 16px;border-radius:999px;background:rgba(22,22,24,.72);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-size:12.5px;line-height:1.4;text-align:center;color:#f5f5f7;pointer-events:none}
 .download-link:hover{background:#d9d9d9;color:#000}
 .control-dock{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:min(700px,calc(100% - 56px));display:flex;align-items:center;padding:20px 24px;gap:24px;background:rgba(22,22,24,.82);border:1px solid rgba(255,255,255,.14);border-radius:25px;box-shadow:0 24px 60px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.05);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
 .controls{flex:1;min-width:0;display:flex;gap:26px;align-items:center;padding-left:24px;border-left:1px solid rgba(255,255,255,.12)}
@@ -39,6 +40,7 @@ button:focus-visible,.download-link:focus-visible{outline:2px solid #fff;outline
   .controls{flex:none;gap:16px;padding:16px 0 0;border-left:0;border-top:1px solid rgba(255,255,255,.12)}
   .play{width:44px;height:44px}
   .download-link{height:40px;padding:0 14px 0 13px;font-size:13px}
+  .site-note{top:calc(64px + env(safe-area-inset-top));max-width:calc(100% - 32px);font-size:12px;padding:7px 14px}
   .download-link svg{width:15px;height:15px}
 }
 @media(max-height:650px) and (min-width:701px){
