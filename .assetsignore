@@ -1,0 +1,13 @@
+**/.git
+**/.wrangler
+**/dist
+**/node_modules
+**/.DS_Store
+wrangler.jsonc
+wrangler.json
+wrangler.toml
+.assetsignore
+.wranglerignore
+.gitignore
+README.md
+LICENSE
