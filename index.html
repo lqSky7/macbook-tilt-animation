@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>A clone of iPhone Duo's fold progressive blur animation on macbook using lid tilt sensor. Fully native written in swift!</title>
   <meta name="description" content="A clone of iPhone Duo's fold progressive blur animation on macbook using lid tilt sensor. Fully native written in swift!">
-  <meta name="keywords" content="iphone duo fold progressive blur animation, macbook lid tilt sensor, macos lid closing animation, swift macbook animation, three.js macbook, webgl macbook, apple 3d model">
   <meta name="author" content="lqSky7">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="7c7ec85d6804a564">
@@ -15,42 +14,50 @@
   <meta property="og:title" content="A clone of iPhone Duo's fold progressive blur animation on macbook using lid tilt sensor. Fully native written in swift!">
   <meta property="og:description" content="A clone of iPhone Duo's fold progressive blur animation on macbook using lid tilt sensor. Fully native written in swift!">
   <meta property="og:image" content="https://macos-lid-closing-animation.catinice.workers.dev/assets/og-preview.png">
+  <meta property="og:video" content="https://macos-lid-closing-animation.catinice.workers.dev/assets/demo.mp4">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="A clone of iPhone Duo's fold progressive blur animation on macbook using lid tilt sensor. Fully native written in swift!">
   <meta name="twitter:description" content="A clone of iPhone Duo's fold progressive blur animation on macbook using lid tilt sensor. Fully native written in swift!">
   <meta name="twitter:image" content="https://macos-lid-closing-animation.catinice.workers.dev/assets/og-preview.png">
   <link rel="icon" href="./assets/favicon.svg">
   <link rel="stylesheet" href="./style.css">
-  <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
 </head>
 <body>
-  <main>
+  <header class="topbar">
     <p class="site-note">Real app animation is much better than what is demonstrated on the website</p>
-    <div id="viewport" aria-label="MacBook Pro 3D model. Drag to rotate, scroll to zoom."></div>
     <a class="download-link" href="https://github.com/lqSky7/iphone-duo-macos-animation" target="_blank" rel="noopener noreferrer" aria-label="Download for macOS" title="Download for macOS">
       <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
       <span>Download for macOS</span>
     </a>
-    <div class="control-dock">
-      <aside class="screen-panel" aria-label="Screen UI">
-        <div class="panel-heading"><h2>Screen UI</h2></div>
-        <div class="ui-themes" role="tablist" aria-label="Screen UI type">
-          <button role="tab" data-ui-theme="wallpaper" aria-selected="true" disabled>Apple Park</button>
-          <button role="tab" data-ui-theme="blue" aria-selected="false" disabled>Blue Mac</button>
-          <button role="tab" data-ui-theme="sunflower" aria-selected="false" disabled>Sunflower</button>
-          <button role="tab" data-ui-theme="custom" aria-selected="false" disabled>Custom</button>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="stage">
+        <video class="demo-video" controls autoplay muted loop playsinline preload="metadata" poster="./assets/demo-poster.jpg">
+          <source src="./assets/demo.webm" type="video/webm">
+          <source src="./assets/demo.mp4" type="video/mp4">
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
+    </section>
+    <section class="bento-row" aria-label="Features">
+      <article class="card settings-card">
+        <div class="shot-wrap">
+          <img src="./assets/app-settings.png" alt="macTilt settings window showing tilt thresholds, display and physics controls" loading="lazy" onerror="this.classList.add('is-missing')">
         </div>
-        <input id="ui-upload" type="file" accept="image/*" hidden disabled>
-      </aside>
-      <section class="controls" aria-label="Fold animation controls">
-        <button id="play" class="play" aria-label="Play animation" disabled>
-          <svg id="pause-icon" viewBox="0 0 24 24" hidden><path d="M8 6v12M16 6v12"/></svg>
-          <svg id="play-icon" viewBox="0 0 24 24"><path d="m9 5 10 7-10 7Z"/></svg>
-        </button>
-        <input id="angle" aria-label="Fold progress" type="range" min="0" max="135" value="108" step="0.1" disabled>
-      </section>
-    </div>
+        <h2>Everything is customisable.</h2>
+        <p>Thresholds, display source, physics, shaders and live preview — dial it in exactly how you like it.</p>
+      </article>
+      <article class="card battery-card">
+        <svg class="battery-icon" viewBox="0 0 64 32" role="img" aria-label="Full battery icon">
+          <rect x="1.5" y="1.5" width="53" height="29" rx="8" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+          <rect x="5" y="5" width="46" height="22" rx="4.5" fill="#30d158"/>
+          <path d="M57.5 11.5v9a3.5 3.5 0 0 0 0-9z" fill="rgba(255,255,255,.4)"/>
+        </svg>
+        <h2>Minimal impact on battery.</h2>
+        <p>No polling. Event-driven lid sensing sips power while it watches the hinge.</p>
+      </article>
+    </section>
   </main>
-  <script type="module" src="./main.js"></script>
 </body>
 </html>
