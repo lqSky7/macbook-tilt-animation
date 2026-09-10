@@ -1,244 +1,53 @@
 <!doctype html>
-<html lang="en" prefix="og: https://ogp.me/ns#">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>MacBook Pro 3D Tilt &amp; Fold Preview · Interactive macOS Experience</title>
-
-  <!-- Comprehensive SEO Meta Tags -->
-  <meta name="description" content="Interactive 3D MacBook Pro running macOS. Experience photorealistic WebGL rendering, realistic hinge fold &amp; tilt animations, live macOS desktop UI with menu bar &amp; dock, and high-resolution wallpapers. Built with Three.js.">
-  <meta name="keywords" content="MacBook Pro 3D, three.js macbook, macos tilt animation, apple 3d model, webgl macbook, macos wallpapers, interactive 3d laptop, threejs showcase">
-  <meta name="author" content="Antigravity">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <title>MacBook Pro · Tilt &amp; Fold Preview</title>
+  <meta name="description" content="Interactive 3D MacBook Pro fold animation with projected screen UI, progressive blur, and custom image uploads. Built with Three.js.">
+  <meta name="keywords" content="MacBook Pro 3D, three.js macbook, macos tilt animation, apple 3d model, webgl macbook, macos wallpapers">
+  <meta name="author" content="lqSky7">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://macbook-tilt-animation.catinice.workers.dev/">
-
-  <!-- Theming & PWA -->
-  <meta name="theme-color" content="#0d0e12">
-  <meta name="color-scheme" content="dark light">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="MacBook 3D">
-  <link rel="manifest" href="./site.webmanifest">
-  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
-  <link rel="apple-touch-icon" href="./assets/favicon.svg">
-
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://macbook-tilt-animation.catinice.workers.dev/">
-  <meta property="og:title" content="MacBook Pro 3D Tilt &amp; Fold Preview · Interactive macOS Experience">
-  <meta property="og:description" content="Explore an interactive 3D MacBook Pro running macOS. Real-time WebGL rendering, smooth lid tilt &amp; fold physics, dynamic macOS desktop screen, and curated 5K wallpapers.">
+  <meta property="og:title" content="MacBook Pro · Tilt &amp; Fold Preview">
+  <meta property="og:description" content="Interactive 3D MacBook Pro fold animation with projected screen UI, progressive blur, and custom image uploads. Built with Three.js.">
   <meta property="og:image" content="https://macbook-tilt-animation.catinice.workers.dev/assets/og-preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="MacBook Pro 3D Tilt &amp; Fold Preview with macOS Desktop UI">
-  <meta property="og:site_name" content="MacBook Pro 3D Studio">
-  <meta property="og:locale" content="en_US">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://macbook-tilt-animation.catinice.workers.dev/">
-  <meta name="twitter:title" content="MacBook Pro 3D Tilt &amp; Fold Preview · Interactive macOS Experience">
-  <meta name="twitter:description" content="Explore an interactive 3D MacBook Pro running macOS with real-time fold animation and 5K wallpapers.">
+  <meta name="twitter:title" content="MacBook Pro · Tilt &amp; Fold Preview">
+  <meta name="twitter:description" content="Interactive 3D MacBook Pro fold animation with projected screen UI, progressive blur, and custom image uploads. Built with Three.js.">
   <meta name="twitter:image" content="https://macbook-tilt-animation.catinice.workers.dev/assets/og-preview.png">
-  <meta name="twitter:image:alt" content="MacBook Pro 3D Tilt and Fold Preview">
-
-  <!-- Structured Data: JSON-LD for Immediate Search Indexing -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "MacBook Pro 3D Tilt & Fold Preview",
-    "alternateName": "MacBook 3D Studio",
-    "url": "https://macbook-tilt-animation.catinice.workers.dev/",
-    "applicationCategory": "DesignApplication",
-    "operatingSystem": "Any (Web Browser with WebGL support)",
-    "browserRequirements": "Requires WebGL2 and JavaScript support",
-    "description": "An interactive 3D MacBook Pro model running macOS with dynamic hinge fold animation, real-time lighting, high-resolution macOS wallpapers, and customizable image projection.",
-    "screenshot": "https://macbook-tilt-animation.catinice.workers.dev/assets/og-preview.png",
-    "featureList": [
-      "Interactive 3D orbit, pan, and zoom controls",
-      "Physically accurate MacBook Pro hinge tilt and fold slider (0° to 135°)",
-      "Automated smooth breathing fold animation",
-      "Photorealistic macOS Retina screen with dynamic menu bar and glass dock",
-      "Curated 5K Apple & aesthetic Wallhaven wallpapers",
-      "Custom user wallpaper upload and instant 3D projection",
-      "PBR metallic aluminum enclosure with real-time environment reflections",
-      "Full keyboard shortcut navigation and mobile touch support"
-    ],
-    "author": {
-      "@type": "Person",
-      "name": "Antigravity"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  }
-  </script>
-
-  <!-- Preconnect & Preloads -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" href="./assets/favicon.svg">
   <link rel="stylesheet" href="./style.css">
-
-  <!-- Three.js Import Map -->
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "./vendor/three/build/three.module.js",
-      "three/addons/": "./vendor/three/examples/jsm/"
-    }
-  }
-  </script>
+  <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
 </head>
 <body>
-  <!-- Semantic Header for SEO & Crawlers -->
-  <header class="site-header">
-    <div class="brand">
-      <svg class="brand-logo" viewBox="0 0 64 64" width="22" height="22" aria-hidden="true">
-        <use href="./assets/favicon.svg#screenGrad"></use>
-        <path d="M10 10 h44 v30 h-44 z" fill="#374151" />
-        <rect x="13" y="13" width="38" height="24" rx="1.5" fill="#3b82f6" />
-        <path d="M4 42 L60 42 L58 49 L6 49 Z" fill="#9ca3af" />
-      </svg>
-      <h1>MacBook Pro 3D · macOS Tilt &amp; Fold</h1>
-    </div>
-    <div class="header-actions">
-      <!-- Native SwiftUI App Promotion -->
-      <a class="native-app-btn" href="https://github.com/lqSky7/iphone-duo-macos-animation" target="_blank" rel="noopener noreferrer" title="Get the Native SwiftUI macOS App powered by your MacBook lid tilt sensor">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 1.01-2.85-.92.04-2.04.62-2.7 1.38-.58.67-1.09 1.74-1.02 2.78 1.03.08 2.09-.56 2.71-1.31z"/>
-        </svg>
-        <span>Native SwiftUI App</span>
-        <svg class="ext-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-      </a>
-      <button id="reset-camera" class="header-btn" title="Reset View (Press R)" aria-label="Reset Camera View">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-          <path d="M3 3v5h5"/>
-        </svg>
-        <span>Reset View</span>
-      </button>
-      <a class="github-link" href="https://github.com/lqSky7/iphone-duo-macos-animation" target="_blank" rel="noopener noreferrer" aria-label="View project on GitHub" title="View on GitHub">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M10.226 17.284c-2.965-.36-5.054-2.493-5.054-5.256 0-1.123.404-2.336 1.078-3.144-.292-.741-.247-2.314.09-2.965.898-.112 2.111.36 2.83 1.01.853-.269 1.752-.404 2.853-.404 1.1 0 1.999.135 2.807.382.696-.629 1.932-1.1 2.83-.988.315.606.36 2.179.067 2.942.72.854 1.101 2 1.101 3.167 0 2.763-2.089 4.852-5.098 5.234.763.494 1.28 1.572 1.28 2.807v2.336c0 .674.561 1.056 1.235.786 4.066-1.55 7.255-5.615 7.255-10.646C23.5 6.188 18.334 1 11.978 1 5.62 1 .5 6.188.5 12.545c0 4.986 3.167 9.12 7.435 10.669.606.225 1.19-.18 1.19-.786V20.63a2.9 2.9 0 0 1-1.078.224c-1.483 0-2.359-.808-2.987-2.313-.247-.607-.517-.966-1.034-1.033-.27-.023-.359-.135-.359-.27 0-.27.45-.471.898-.471.652 0 1.213.404 1.797 1.235.45.651.921.943 1.483.943.561 0 .92-.202 1.437-.719.382-.381.674-.718.944-.943"/></svg>
-      </a>
-    </div>
-  </header>
-
   <main>
-    <!-- WebGL Canvas Viewport -->
-    <div id="viewport" role="region" aria-label="Interactive 3D MacBook Pro model. Drag to rotate, scroll to zoom, adjust angle slider or press Space to play animation."></div>
-
-    <!-- Hidden Search-Engine-Friendly Content for Immediate Indexing & Screen Readers -->
-    <section class="seo-crawler-content">
-      <h2>Interactive 3D MacBook Pro Studio</h2>
-      <p>A web-based 3D MacBook Pro visualization with real-time fold and tilt physics, built with Three.js and WebGL. Explore the high-resolution anodized aluminum chassis, keyboard well, glass trackpad, and vivid macOS display.</p>
-      <h3>Key Interactive Features</h3>
-      <ul>
-        <li><strong>Lid Tilt &amp; Fold Slider:</strong> Smoothly adjust the display angle from 0° (closed shut) to 135° (wide viewing angle).</li>
-        <li><strong>Auto Play Animation:</strong> Watch the MacBook lid gently open and close in a smooth breathing cycle.</li>
-        <li><strong>macOS Desktop UI:</strong> Dynamic 2560x1600 Retina screen with real-time clock, Apple menu bar, desktop shortcuts, and authentic glass dock with app icons.</li>
-        <li><strong>High-Resolution Wallpapers:</strong> Switch between official Apple Park, Blue Waves, Sunflower, and Wallhaven landscapes, or upload custom wallpapers.</li>
-        <li><strong>Controls &amp; Hotkeys:</strong> Drag to orbit 360°, scroll to zoom, Space to play/pause, Arrow keys to adjust angle, R to reset view.</li>
-      </ul>
-    </section>
-
-    <!-- Interactive Control Dock -->
+    <div id="viewport" aria-label="MacBook Pro 3D model. Drag to rotate, scroll to zoom."></div>
+    <a class="github-link" href="https://github.com/lqSky7/iphone-duo-macos-animation" target="_blank" rel="noopener noreferrer" aria-label="View native macOS SwiftUI app on GitHub" title="View native macOS SwiftUI app on GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.226 17.284c-2.965-.36-5.054-2.493-5.054-5.256 0-1.123.404-2.336 1.078-3.144-.292-.741-.247-2.314.09-2.965.898-.112 2.111.36 2.83 1.01.853-.269 1.752-.404 2.853-.404 1.1 0 1.999.135 2.807.382.696-.629 1.932-1.1 2.83-.988.315.606.36 2.179.067 2.942.72.854 1.101 2 1.101 3.167 0 2.763-2.089 4.852-5.098 5.234.763.494 1.28 1.572 1.28 2.807v2.336c0 .674.561 1.056 1.235.786 4.066-1.55 7.255-5.615 7.255-10.646C23.5 6.188 18.334 1 11.978 1 5.62 1 .5 6.188.5 12.545c0 4.986 3.167 9.12 7.435 10.669.606.225 1.19-.18 1.19-.786V20.63a2.9 2.9 0 0 1-1.078.224c-1.483 0-2.359-.808-2.987-2.313-.247-.607-.517-.966-1.034-1.033-.27-.023-.359-.135-.359-.27 0-.27.45-.471.898-.471.652 0 1.213.404 1.797 1.235.45.651.921.943 1.483.943.561 0 .92-.202 1.437-.719.382-.381.674-.718.944-.943"/></svg>
+    </a>
     <div class="control-dock">
-      <!-- Wallpaper Selector Drawer -->
-      <aside class="screen-panel" aria-label="macOS Wallpapers">
-        <div class="panel-heading">
-          <h2>Wallpapers</h2>
-          <span class="panel-badge">macOS</span>
+      <aside class="screen-panel" aria-label="Screen UI">
+        <div class="panel-heading"><h2>Screen UI</h2></div>
+        <div class="ui-themes" role="tablist" aria-label="Screen UI type">
+          <button role="tab" data-ui-theme="wallpaper" aria-selected="true" disabled>Apple Park</button>
+          <button role="tab" data-ui-theme="blue" aria-selected="false" disabled>Blue Mac</button>
+          <button role="tab" data-ui-theme="sunflower" aria-selected="false" disabled>Sunflower</button>
+          <button role="tab" data-ui-theme="custom" aria-selected="false" disabled>Custom</button>
         </div>
-        <div class="wallpaper-carousel" role="tablist" aria-label="Choose macOS Wallpaper">
-          <button role="tab" class="wp-card" data-wallpaper="apple-park" aria-selected="true" disabled>
-            <img src="./assets/wallpapers/thumbnails/ApplePark_2.jpg" alt="Apple Park Wallpaper thumbnail" width="48" height="30" loading="lazy">
-            <span>Apple Park</span>
-          </button>
-          <button role="tab" class="wp-card" data-wallpaper="blue-mac" aria-selected="false" disabled>
-            <img src="./assets/wallpapers/thumbnails/Blue_Mac.jpg" alt="Blue Waves Wallpaper thumbnail" width="48" height="30" loading="lazy">
-            <span>Blue Waves</span>
-          </button>
-          <button role="tab" class="wp-card" data-wallpaper="sunflower" aria-selected="false" disabled>
-            <img src="./assets/wallpapers/thumbnails/Sunflower_Mac.jpg" alt="Sunflower Wallpaper thumbnail" width="48" height="30" loading="lazy">
-            <span>Sunflower</span>
-          </button>
-          <button role="tab" class="wp-card" data-wallpaper="wallhaven-neon" aria-selected="false" disabled>
-            <img src="./assets/wallpapers/thumbnails/wallhaven-8grlyj.jpg" alt="Cyber Peak Wallpaper thumbnail" width="48" height="30" loading="lazy">
-            <span>Cyber Peak</span>
-          </button>
-          <button role="tab" class="wp-card" data-wallpaper="wallhaven-landscape" aria-selected="false" disabled>
-            <img src="./assets/wallpapers/thumbnails/wallhaven-5ymlv9.jpg" alt="Valley Wallpaper thumbnail" width="48" height="30" loading="lazy">
-            <span>Valley</span>
-          </button>
-          <button role="tab" class="wp-card" data-wallpaper="wallhaven-sunset" aria-selected="false" disabled>
-            <img src="./assets/wallpapers/thumbnails/wallhaven-jedr8p.jpg" alt="Sunset Drift Wallpaper thumbnail" width="48" height="30" loading="lazy">
-            <span>Sunset</span>
-          </button>
-          <button role="tab" class="wp-card" data-wallpaper="wallhaven-forest" aria-selected="false" disabled>
-            <img src="./assets/wallpapers/thumbnails/wallhaven-e8w22r.jpg" alt="Moody Forest Wallpaper thumbnail" width="48" height="30" loading="lazy">
-            <span>Forest</span>
-          </button>
-          <button role="tab" class="wp-card" data-wallpaper="wallhaven-dark" aria-selected="false" disabled>
-            <img src="./assets/wallpapers/thumbnails/wallhaven-d8dzdj.jpg" alt="Minimal Dark Wallpaper thumbnail" width="48" height="30" loading="lazy">
-            <span>Dark</span>
-          </button>
-          <button role="tab" class="wp-card" data-wallpaper="wallhaven-cosmic" aria-selected="false" disabled>
-            <img src="./assets/wallpapers/thumbnails/wallhaven-rqp9jw.jpg" alt="Cosmic Night Wallpaper thumbnail" width="48" height="30" loading="lazy">
-            <span>Cosmic</span>
-          </button>
-          <button role="tab" class="wp-card" data-wallpaper="wallhaven-flow" aria-selected="false" disabled>
-            <img src="./assets/wallpapers/thumbnails/wallhaven-lyj3xl.jpg" alt="Color Flow Wallpaper thumbnail" width="48" height="30" loading="lazy">
-            <span>Flow</span>
-          </button>
-          <button role="tab" class="wp-card wp-custom" data-ui-custom aria-selected="false" disabled title="Upload custom wallpaper">
-            <div class="custom-icon">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="17 8 12 3 7 8"/>
-                <line x1="12" y1="3" x2="12" y2="15"/>
-              </svg>
-            </div>
-            <span>Custom</span>
-          </button>
-        </div>
-        <input id="ui-upload" type="file" accept="image/png,image/jpeg,image/webp,image/avif" hidden disabled>
+        <input id="ui-upload" type="file" accept="image/*" hidden disabled>
       </aside>
-
-      <!-- Tilt & Fold Controls -->
-      <section class="controls" aria-label="MacBook Lid Tilt and Fold Controls">
-        <button id="play" class="play" aria-label="Play animation" disabled title="Play/Pause fold animation (Space)">
-          <svg id="pause-icon" viewBox="0 0 24 24" hidden aria-hidden="true"><path fill="currentColor" d="M8 6v12M16 6v12"/></svg>
-          <svg id="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m9 5 10 7-10 7Z"/></svg>
+      <section class="controls" aria-label="Fold animation controls">
+        <button id="play" class="play" aria-label="Play animation" disabled>
+          <svg id="pause-icon" viewBox="0 0 24 24" hidden><path d="M8 6v12M16 6v12"/></svg>
+          <svg id="play-icon" viewBox="0 0 24 24"><path d="m9 5 10 7-10 7Z"/></svg>
         </button>
-        <div class="slider-wrapper">
-          <div class="slider-label">
-            <span>Lid Angle</span>
-            <span id="angle-val" class="angle-badge">108°</span>
-          </div>
-          <input id="angle" aria-label="MacBook lid angle slider" type="range" min="0" max="135" value="108" step="0.5" disabled>
-        </div>
+        <input id="angle" aria-label="Fold progress" type="range" min="0" max="135" value="108" step="0.1" disabled>
       </section>
     </div>
-
-    <!-- Minimal usage hint footer -->
-    <footer class="interaction-hint">
-      <span>Drag to orbit · Scroll to zoom · Press <b>Space</b> to fold</span>
-    </footer>
   </main>
-
-  <noscript>
-    <div style="position:fixed;bottom:20px;left:20px;right:20px;padding:16px;background:#1e293b;color:#f8fafc;border-radius:12px;text-align:center;font-family:sans-serif;z-index:999;">
-      JavaScript is required to view the interactive 3D MacBook Pro model. Please enable JavaScript in your browser settings.
-    </div>
-  </noscript>
-
   <script type="module" src="./main.js"></script>
 </body>
 </html>
