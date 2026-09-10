@@ -118,6 +118,12 @@ vec3 screenColor() {
 screenMaterial.onBeforeCompile = shader => {
   shader.uniforms.foldAngle = bend;
   shader.uniforms.uiPixel = uiPixel;
+  shader.vertexShader = `varying vec2 vUv;\n${shader.vertexShader}`;
+  shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', `
+    vUv = uv;
+    #include <begin_vertex>
+  `);
+  shader.fragmentShader = `varying vec2 vUv;\n${shader.fragmentShader}`;
   shader.fragmentShader = shader.fragmentShader.replace('#include <emissivemap_pars_fragment>', `
     #include <emissivemap_pars_fragment>
     ${screenShader}
