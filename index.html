@@ -79,6 +79,27 @@
       </div>
     </section>
   </main>
+  <footer class="colophon" aria-label="MacTilt footer">
+    <div class="colophon-cut">
+      <p class="colophon-title"><span id="footer-mactilt" class="chroma-text chroma-pre" data-chroma-id="footer-mactilt">MacTilt.</span></p>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const el = document.getElementById('footer-mactilt');
+      if (!el || !('IntersectionObserver' in window)) {
+        el && el.classList.replace('chroma-pre', 'chroma-go');
+        return;
+      }
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.replace('chroma-pre', 'chroma-go');
+          observer.disconnect();
+        }
+      }, { threshold: 0.1 });
+      observer.observe(el);
+    })();
+  </script>
   <script>
     document.getElementById('download-release').addEventListener('click', async (e) => {
       e.preventDefault();
