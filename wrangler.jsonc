@@ -6,6 +6,6 @@
     "enabled": true
   },
   "assets": {
-    "directory": "./"
+    "directory": "./dist"
   }
 }
