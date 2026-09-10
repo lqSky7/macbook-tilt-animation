@@ -6,10 +6,10 @@ body{margin:0;background:#000;overflow-x:hidden}
 .brand{position:absolute;top:calc(16px + env(safe-area-inset-top));left:calc(20px + env(safe-area-inset-left));display:inline-flex;align-items:center;height:44px;font-size:22px;font-weight:200;letter-spacing:-.045em;color:#f5f5f7;text-decoration:none;pointer-events:auto}
 .top-actions{position:absolute;top:calc(16px + env(safe-area-inset-top));right:calc(16px + env(safe-area-inset-right));display:flex;gap:10px;align-items:center;pointer-events:auto}
 main{display:block;min-height:100dvh;padding:96px 16px 64px}
-.download-link{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 16px;border-radius:999px;background:#fff;color:#000;font-size:14px;font-weight:500;line-height:1;text-decoration:none;transition:background .2s}
-.download-link svg{width:17px;height:17px;fill:currentColor;flex-shrink:0}
+.download-link{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:#fff;color:#000;font-size:14px;font-weight:500;line-height:1;text-decoration:none;transition:background .2s}
+.download-link svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
 .github-link{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:rgba(22,22,24,.72);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#f5f5f7;font-size:14px;font-weight:500;line-height:1;text-decoration:none;transition:background .2s,border-color .2s}
-.github-link svg{width:17px;height:17px;fill:currentColor;flex-shrink:0}
+.github-link svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
 .github-link:hover{background:rgba(48,48,52,.85);border-color:rgba(255,255,255,.25)}
 .download-link:hover{background:#d9d9d9;color:#000}
 .hero{min-height:calc(100dvh - 96px);display:flex;align-items:center;justify-content:center;padding:24px 0 40px}
@@ -22,6 +22,13 @@ main{display:block;min-height:100dvh;padding:96px 16px 64px}
 .shot-wrap{border-radius:14px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.1)}
 .shot-wrap img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:top center;background:#000}
 .battery-card{justify-content:center;align-items:flex-start}
+.side-stack{display:flex;flex-direction:column;gap:16px;min-height:100%}
+.side-stack .battery-card{flex:0 0 auto}
+.oss-card{flex:1;justify-content:center}
+.forge-logos{display:flex;gap:14px;align-items:center;margin:8px 0 4px}
+.forge-logos a{display:inline-flex;color:#f5f5f7;transition:color .2s,transform .15s}
+.forge-logos a:hover{color:#fff;transform:scale(1.06)}
+.forge-logos svg{width:34px;height:34px;fill:currentColor}
 .battery-icon{width:120px;height:auto;display:block;margin:8px 0 4px}
 .download-link:focus-visible,.github-link:focus-visible,.brand:focus-visible{outline:2px solid #fff;outline-offset:4px}
 @media(max-width:860px){
