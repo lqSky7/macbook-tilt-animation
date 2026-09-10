@@ -247,40 +247,15 @@ try {
     screenMesh.material = screenMaterial;
   }
 
-  // Matte Space Black finish with crisp white keyboard letters and zero reflections
+  // Matte Space Black finish with zero reflections
   macbookNode.traverse(child => {
     if (child.isMesh && child.material && child !== screenMesh) {
       if (child.name === 'anchor' || child.name === 'bottom_stands') {
         // Pure matte black for screen rubber gasket & feet
         child.material.color = new THREE.Color(0x0a0a0a);
-      } else if (child.name === 'body') {
-        // Matte black chassis with crisp white keyboard letters/symbols
-        child.material.color = new THREE.Color(0xffffff);
-        child.material.onBeforeCompile = shader => {
-          shader.fragmentShader = shader.fragmentShader.replace(
-            '#include <map_fragment>',
-            `
-            #ifdef USE_MAP
-              vec4 texSample = texture2D(map, vMapUv);
-              float lum = dot(texSample.rgb, vec3(0.299, 0.587, 0.114));
-              // Keyboard well bounds in texture UV space
-              bool inKeyboard = vMapUv.x > 0.045 && vMapUv.x < 0.262 && vMapUv.y > 0.065 && vMapUv.y < 0.665;
-              if (inKeyboard) {
-                // Keycaps are deep black (~0.02), letters/symbols smoothly transition to crisp pure white
-                float letterMask = smoothstep(0.20, 0.52, lum);
-                diffuseColor.rgb = mix(vec3(0.024, 0.024, 0.026), vec3(0.96, 0.96, 0.98), letterMask);
-              } else {
-                // Matte Space Black unibody casing
-                float casingTone = clamp(lum * 0.18, 0.02, 0.045);
-                diffuseColor.rgb = vec3(casingTone);
-              }
-            #endif
-            `
-          );
-        };
       } else {
-        // Matte Apple Space Black unibody aluminum for lid & trackpad
-        child.material.color = new THREE.Color(0x030303);
+        // Matte Apple Space Black unibody aluminum
+        child.material.color = new THREE.Color(0x222225);
       }
       child.material.roughness = 0.95;
       child.material.metalness = 0.0;
