@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d1d5db" />
+      <stop offset="100%" stop-color="#9ca3af" />
+    </linearGradient>
+    <linearGradient id="lidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#374151" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+  </defs>
+  <!-- MacBook Lid -->
+  <rect x="10" y="10" width="44" height="30" rx="3" fill="url(#lidGrad)" stroke="#4b5563" stroke-width="1.5" />
+  <!-- Display screen -->
+  <rect x="13" y="13" width="38" height="24" rx="1.5" fill="url(#screenGrad)" />
+  <!-- Menu bar hint -->
+  <rect x="13" y="13" width="38" height="3" fill="rgba(255,255,255,0.25)" />
+  <!-- MacBook Base -->
+  <path d="M4 42 L60 42 C61.1 42 62 42.9 62 44 L60 47 C60 48.1 59.1 49 58 49 L6 49 C4.9 49 4 48.1 4 47 L2 44 C2 42.9 2.9 42 4 42 Z" fill="url(#bodyGrad)" />
+  <!-- Trackpad indent / notch -->
+  <path d="M28 42 L36 42 L35 43.5 L29 43.5 Z" fill="#6b7280" />
+</svg>

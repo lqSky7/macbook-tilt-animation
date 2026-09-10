@@ -1,0 +1,7 @@
+.DS_Store
+TiltSolo.app/
+BUILD
+VERSION
+build.sh
+.wrangler/
+node_modules/

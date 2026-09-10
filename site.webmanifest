@@ -1,0 +1,17 @@
+{
+  "name": "MacBook Pro 3D Tilt & Fold Preview",
+  "short_name": "MacBook 3D",
+  "description": "Interactive 3D MacBook Pro running macOS with realistic hinge fold animation and high-res wallpapers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0e12",
+  "theme_color": "#121316",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
