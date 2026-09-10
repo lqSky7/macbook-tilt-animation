@@ -3,34 +3,37 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:#000;overflow-x:hidden}
 .topbar{position:fixed;top:0;left:0;right:0;z-index:10;pointer-events:none}
-.topbar .download-link{pointer-events:auto}
+.top-actions{position:absolute;top:calc(16px + env(safe-area-inset-top));right:calc(16px + env(safe-area-inset-right));display:flex;gap:10px;align-items:center;pointer-events:auto}
 main{display:block;min-height:100dvh;padding:96px 16px 64px}
-.download-link{position:absolute;top:calc(16px + env(safe-area-inset-top));right:calc(16px + env(safe-area-inset-right));z-index:1;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 16px;border-radius:999px;background:#fff;color:#000;font-size:14px;font-weight:500;line-height:1;text-decoration:none;transition:background .2s}
+.download-link{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 16px;border-radius:999px;background:#fff;color:#000;font-size:14px;font-weight:500;line-height:1;text-decoration:none;transition:background .2s}
 .download-link svg{width:17px;height:17px;fill:currentColor;flex-shrink:0}
-.site-note{position:absolute;top:calc(16px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:1;margin:0;max-width:calc(100% - 220px);padding:8px 16px;border-radius:999px;background:rgba(22,22,24,.72);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-size:12.5px;line-height:1.4;text-align:center;color:#f5f5f7;pointer-events:none;white-space:nowrap}
+.github-link{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:rgba(22,22,24,.72);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#f5f5f7;font-size:14px;font-weight:500;line-height:1;text-decoration:none;transition:background .2s,border-color .2s}
+.github-link svg{width:17px;height:17px;fill:currentColor;flex-shrink:0}
+.github-link:hover{background:rgba(48,48,52,.85);border-color:rgba(255,255,255,.25)}
 .download-link:hover{background:#d9d9d9;color:#000}
 .hero{min-height:calc(100dvh - 96px);display:flex;align-items:center;justify-content:center;padding:24px 0 40px}
 .stage{width:min(960px,100%);display:flex;justify-content:center}
 .demo-video{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;background:#111;border-radius:20px;border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 60px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.05)}
-.bento-row{width:min(1120px,100%);margin:0 auto;display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:stretch}
-.card{background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:28px;box-shadow:0 24px 60px -32px rgba(0,0,0,.9)}
+.bento-row{width:min(1120px,100%);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:28px;box-shadow:0 24px 60px -32px rgba(0,0,0,.9);display:flex;flex-direction:column}
 .card h2{margin:18px 0 8px;font-size:28px;line-height:1.15;font-weight:600;letter-spacing:-.022em;color:#f5f5f7}
 .card p{margin:0;font-size:15px;line-height:1.5;color:var(--text-dim);max-width:46ch}
 .shot-wrap{border-radius:14px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.1)}
 .shot-wrap img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:top center;background:#000}
-.shot-wrap img.is-missing{display:none}
-.battery-card{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.battery-card{justify-content:center;align-items:flex-start}
 .battery-icon{width:120px;height:auto;display:block;margin:8px 0 4px}
-.download-link:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.download-link:focus-visible,.github-link:focus-visible{outline:2px solid #fff;outline-offset:4px}
 @media(max-width:860px){
   .bento-row{grid-template-columns:1fr}
   .card h2{font-size:24px}
   .shot-wrap img{aspect-ratio:16/14}
 }
 @media(max-width:700px){
-  main{padding:120px 16px 48px}
-  .download-link{height:40px;padding:0 14px 0 13px;font-size:13px}
-  .site-note{top:calc(64px + env(safe-area-inset-top));max-width:calc(100% - 32px);font-size:12px;padding:7px 14px;white-space:normal}
+  main{padding:96px 16px 48px}
+  .download-link,.github-link{height:40px;font-size:13px}
+  .download-link{padding:0 14px 0 13px}
+  .github-link{padding:0 14px}
+  .github-link svg{width:15px;height:15px}
   .download-link svg{width:15px;height:15px}
   .demo-video{border-radius:16px}
   .card{padding:22px;border-radius:18px}
