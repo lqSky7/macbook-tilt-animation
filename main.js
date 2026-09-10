@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(32, 1, .1, 250);
 camera.position.set(0, 1.2, 7.2);
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-renderer.setClearColor(0xf6f6f3, 0);
+renderer.setClearColor(0xf6f6f6, 0);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.18;
 viewport.appendChild(renderer.domElement);
@@ -24,11 +24,11 @@ environment.dispose();
 pmrem.dispose();
 scene.environmentIntensity = 1.35;
 
-scene.add(new THREE.HemisphereLight(0xffffff, 0xb5baa8, 1.8));
-const key = new THREE.DirectionalLight(0xfffcf5, 2.6);
+scene.add(new THREE.HemisphereLight(0xffffff, 0xcccccc, 1.8));
+const key = new THREE.DirectionalLight(0xffffff, 2.6);
 key.position.set(-15, 25, 30);
 scene.add(key);
-const rim = new THREE.DirectionalLight(0xe8edf5, 2);
+const rim = new THREE.DirectionalLight(0xffffff, 2);
 rim.position.set(15, 5, -15);
 scene.add(rim);
 
@@ -141,7 +141,7 @@ uiInput.addEventListener('change', async () => {
   try {
     await img.decode();
     const c = uiCanvas.getContext('2d');
-    c.fillStyle = '#101418';
+    c.fillStyle = '#0a0a0a';
     c.fillRect(0, 0, uiCanvas.width, uiCanvas.height);
     const scale = Math.max(uiCanvas.width / img.width, uiCanvas.height / img.height);
     const width = img.width * scale, height = img.height * scale;
