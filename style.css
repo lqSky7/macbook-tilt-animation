@@ -45,13 +45,16 @@ main{display:block;min-height:100dvh;padding:96px 16px 64px}
   .shot-wrap img{aspect-ratio:16/14}
 }
 @media(max-width:700px){
-  main{padding:96px 16px 48px}
+  main{padding:88px 16px 48px}
   .brand{height:40px;font-size:19px}
+  .top-actions{gap:8px}
   .download-link,.github-link{height:40px;font-size:13px}
   .download-link{padding:0 14px 0 13px}
-  .github-link{padding:0 14px}
-  .github-link svg{width:16px;height:16px}
+  .github-link{padding:0 11px}
+  .github-link span{display:none}
+  .github-link svg{width:18px;height:18px}
   .download-link svg{width:15px;height:15px}
+  .hero{min-height:auto;padding:12px 0 32px}
   .demo-video{border-radius:16px}
   .card{padding:22px;border-radius:18px}
   .battery-icon{width:104px}
