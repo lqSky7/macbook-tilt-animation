@@ -12,13 +12,13 @@ const camera = new THREE.PerspectiveCamera(32, 1, .1, 250);
 camera.position.set(0, 1.2, 7.2);
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-renderer.setClearColor(0xf6f6f6, 0);
+renderer.setClearColor(0x000000, 0);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.0;
+renderer.toneMappingExposure = 1.15;
 viewport.appendChild(renderer.domElement);
 
-scene.add(new THREE.AmbientLight(0xffffff, 1.6));
-scene.add(new THREE.HemisphereLight(0xffffff, 0xe0e0e0, 1.2));
+scene.add(new THREE.AmbientLight(0xffffff, 2.0));
+scene.add(new THREE.HemisphereLight(0xffffff, 0x888888, 1.4));
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -247,11 +247,20 @@ try {
     screenMesh.material = screenMaterial;
   }
 
-  // Matte Apple anodized aluminum finish without specular glares
+  // Matte Apple anodized aluminum finish with clear contrast against black background
   macbookNode.traverse(child => {
     if (child.isMesh && child.material && child !== screenMesh) {
-      child.material.roughness = 0.95;
-      child.material.metalness = 0.0;
+      if (child.name === 'anchor' || child.name === 'bottom_stands') {
+        // High-precision matte black for screen rubber gasket & feet
+        child.material.color = new THREE.Color(0x161616);
+        child.material.roughness = 0.95;
+        child.material.metalness = 0.0;
+      } else {
+        // Crisp Apple Silver unibody aluminum with clear visibility against pitch-black background
+        child.material.color = new THREE.Color(0xd6d8dc);
+        child.material.roughness = 0.82;
+        child.material.metalness = 0.05;
+      }
       child.material.envMapIntensity = 0.0;
       child.material.needsUpdate = true;
     }
