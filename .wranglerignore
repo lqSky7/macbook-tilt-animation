@@ -6,3 +6,4 @@ VERSION
 build.sh
 TiltSolo.app
 .wrangler
+dist/
