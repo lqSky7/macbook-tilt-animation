@@ -100,21 +100,86 @@
       observer.observe(el);
     })();
   </script>
+  <dialog id="star-modal" class="star-dialog">
+    <div class="star-card">
+      <div class="star-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <h2>Support MacTilt</h2>
+      <p>If you find this project useful, please consider starring it on GitHub. It helps more developers discover it.</p>
+      <div class="star-actions">
+        <a id="star-and-download" class="star-btn-primary" href="https://github.com/lqSky7/iphone-duo-macos-animation" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Star on GitHub
+        </a>
+        <button id="skip-download" type="button" class="star-btn-secondary">Just Download</button>
+      </div>
+    </div>
+  </dialog>
   <script>
-    document.getElementById('download-release').addEventListener('click', async (e) => {
-      e.preventDefault();
-      const fallback = 'https://github.com/lqSky7/iphone-duo-macos-animation/releases/latest';
-      try {
-        const res = await fetch('https://api.github.com/repos/lqSky7/iphone-duo-macos-animation/releases/latest');
-        if (!res.ok) throw 0;
-        const data = await res.json();
-        const assets = data.assets || [];
-        const dmg = assets.find(a => /\.dmg$/i.test(a.name)) || assets[0];
-        window.location.href = (dmg && dmg.browser_download_url) || fallback;
-      } catch {
-        window.location.href = fallback;
-      }
-    });
+    (() => {
+      const downloadBtn = document.getElementById('download-release');
+      const modal = document.getElementById('star-modal');
+      const starBtn = document.getElementById('star-and-download');
+      const skipBtn = document.getElementById('skip-download');
+      const fallbackUrl = 'https://github.com/lqSky7/iphone-duo-macos-animation/releases/latest';
+
+      let cachedDownloadUrl = null;
+      const resolveDownloadUrl = async () => {
+        if (cachedDownloadUrl) return cachedDownloadUrl;
+        try {
+          const res = await fetch('https://api.github.com/repos/lqSky7/iphone-duo-macos-animation/releases/latest');
+          if (!res.ok) throw 0;
+          const data = await res.json();
+          const assets = data.assets || [];
+          const dmg = assets.find(a => /\.dmg$/i.test(a.name)) || assets[0];
+          cachedDownloadUrl = (dmg && dmg.browser_download_url) || fallbackUrl;
+        } catch {
+          cachedDownloadUrl = fallbackUrl;
+        }
+        return cachedDownloadUrl;
+      };
+
+      // Prefetch download URL in background
+      resolveDownloadUrl();
+
+      const triggerDownload = async () => {
+        const url = await resolveDownloadUrl();
+        window.location.href = url;
+      };
+
+      downloadBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (typeof modal.showModal === 'function') {
+          modal.showModal();
+        } else {
+          triggerDownload();
+        }
+      });
+
+      starBtn.addEventListener('click', () => {
+        setTimeout(() => {
+          modal.close();
+          triggerDownload();
+        }, 150);
+      });
+
+      skipBtn.addEventListener('click', () => {
+        modal.close();
+        triggerDownload();
+      });
+
+      modal.addEventListener('click', (e) => {
+        const rect = modal.getBoundingClientRect();
+        const isInDialog = (
+          rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX && e.clientX <= rect.left + rect.width
+        );
+        if (!isInDialog) {
+          modal.close();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
